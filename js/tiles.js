@@ -1,3 +1,3 @@
-function showcase() {
+function showf() {
     console.log("else");
 }

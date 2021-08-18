@@ -1,5 +1,6 @@
 var siteState = "home";
 var preState = "home";
+const showcase = document.getElementById("showcase");
 const mainSite = document.getElementById("main-site");
 const footer = document.getElementById("footer");
 
@@ -93,7 +94,7 @@ for (let i = 0; i < 50; i++) {
                 div1.className = "tiles";
                 div1.customName = url;
                 console.log(div1);
-                div1.onclick = () => { localStorage.setItem(url, "sagar1216iocshow"); console.log(url); window.open("#header", "self"); change("showcase"); changeImage(url); };
+                div1.onclick = () => { localStorage.setItem(url, "sagar1216iocshow"); console.log(url); change("showcase"); changeImage(url); };
                 // div1[i].addEventListener("click", () => { localStorage.setItem(div1.customName, "sagar1216iocshow"); alert(localStorage.getItem("sagar1216iocshow")); });
                 var div2 = document.createElement("div");
                 div2.className = "tiles-container";
