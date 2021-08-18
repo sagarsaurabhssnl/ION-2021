@@ -90,6 +90,8 @@ for (let i = 0; i < 50; i++) {
         let count = Math.round(Math.random() * 10) + 1;
         await storage.child("demoUser/" + count + ".png").getDownloadURL().then(
             (url) => {
+                var anchor = document.createElement("a");
+                anchor.href = "#showcase";
                 var div1 = document.createElement("button");
                 div1.className = "tiles";
                 div1.customName = url;
@@ -108,7 +110,7 @@ for (let i = 0; i < 50; i++) {
                 var img = document.createElement("img");
                 img.className = "img";
                 img.src = url;
-                document.getElementById("products").appendChild(div1).appendChild(div2).appendChild(img);
+                document.getElementById("products").appendChild(anchor).appendChild(div1).appendChild(div2).appendChild(img);
                 div2.appendChild(over).appendChild(overText);
                 return (url);
             }).catch(function (error) {
