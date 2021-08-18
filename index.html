@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Orbitron&display=swap");
+    </style>
+    <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/showcase.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/signup.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/login.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/loader.css" />
+    <title>DIGIMARKET</title>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-functions.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body scroll="no" style="overflow: hidden" id="body">
+    <!-- <input type="file" id="file" aria-label="File browser example" /> -->
+    <div id="showcase">
+      <div id="close">CLOSE ✖</div>
+      <div id="main-showcase">
+        <div id="showcase-image-container">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/ion-b2ca8.appspot.com/o/demoUser%2F7.png?alt=media&token=3cfbbdb0-e72c-4546-b4f0-3b7ffa646789"
+            id="showcase-img"
+          />
+        </div>
+      </div>
+    </div>
+    <div id="login"></div>
+    <div id="signup"></div>
+    <header class="header">
+      <nav class="navbar">
+        <div style="display: flex; align-items: center">
+          <div style="font-size: 30">·</div>
+          <a
+            href="#"
+            class="nav-logo"
+            style="
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+                sans-serif;
+            "
+            >DIGIMARKET</a
+          >
+          <div style="font-size: 30">·</div>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#products" class="nav-link">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="#footer" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item" id="login">
+            <a href="#" class="nav-link" id="loginText">Login</a>
+          </li>
+          <li class="nav-item" id="signup">
+            <a href="#" class="nav-link" id="signupText">Signup</a>
+          </li>
+        </ul>
+        <div class="nav-btn">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <div id="loader-container">
+      <div id="loader"></div>
+    </div>
+    <div id="main-site">
+      <div id="header-home">
+        <div>
+          <div id="header-text-main">Compare among the Best</div>
+        </div>
+        <div id="header-text">
+          Explore this site to find suitable products just for you
+        </div>
+      </div>
+      <div id="products"></div>
+    </div>
+    <footer
+      style="
+        background-color: tomato;
+        border-radius: 4px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      "
+      id="footer"
+    >
+      <a href="https://github.com/sagarsaurabhssnl" style="padding: 10px"
+        ><img src="./assets/github.png" width="40" height="40"
+      /></a>
+    </footer>
+  </body>
+  <script src="js/firebaseConfig.js"></script>
+  <script src="js/showcase.js"></script>
+  <script src="js/toogle.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/main.js"></script>
+</html>
