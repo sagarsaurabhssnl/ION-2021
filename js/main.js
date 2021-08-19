@@ -80,6 +80,10 @@ function changeImage(uri) {
     a.src = uri;
 }
 
+function orderPlaced() {
+    alert("Order Placed!");
+}
+
 const login = document.getElementById("login");
 const signup = document.getElementById("signup");
 login.addEventListener("click", () => { console.log("login") });
@@ -90,13 +94,13 @@ for (let i = 0; i < 50; i++) {
         let count = Math.round(Math.random() * 10) + 1;
         await storage.child("demoUser/" + count + ".png").getDownloadURL().then(
             (url) => {
+                price = "₹ 10,000";
                 var anchor = document.createElement("a");
-                anchor.href = "#showcase";
+                anchor.href = "#body";
                 var div1 = document.createElement("button");
                 div1.className = "tiles";
                 div1.customName = url;
-                console.log(div1);
-                div1.onclick = () => { localStorage.setItem(url, "sagar1216iocshow"); console.log(url); change("showcase"); changeImage(url); };
+                div1.onclick = () => { localStorage.setItem(url, "sagar1216iocshow"); console.log(url); change("showcase"); changeImage(url); document.getElementById("showcase-price").innerHTML = price };
                 // div1[i].addEventListener("click", () => { localStorage.setItem(div1.customName, "sagar1216iocshow"); alert(localStorage.getItem("sagar1216iocshow")); });
                 var div2 = document.createElement("div");
                 div2.className = "tiles-container";
@@ -105,7 +109,7 @@ for (let i = 0; i < 50; i++) {
                 var over = document.createElement("div");
                 over.className = "over";
                 var overText = document.createElement("div");
-                overText.innerHTML = "₹ 10,000";
+                overText.innerHTML = price;
                 overText.className = "overText";
                 var img = document.createElement("img");
                 img.className = "img";

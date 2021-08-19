@@ -25,17 +25,7 @@
   </head>
   <body scroll="no" style="overflow: hidden" id="body">
     <!-- <input type="file" id="file" aria-label="File browser example" /> -->
-    <div id="showcase">
-      <div id="close">CLOSE ✖</div>
-      <div id="main-showcase">
-        <div id="showcase-image-container">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/ion-b2ca8.appspot.com/o/demoUser%2F7.png?alt=media&token=3cfbbdb0-e72c-4546-b4f0-3b7ffa646789"
-            id="showcase-img"
-          />
-        </div>
-      </div>
-    </div>
+
     <div id="login"></div>
     <div id="signup"></div>
     <header class="header">
@@ -61,10 +51,21 @@
             <a href="#footer" class="nav-link">Contact</a>
           </li>
           <li class="nav-item" id="login">
-            <a href="#" class="nav-link" id="loginText">Login</a>
+            <a href="#body" class="nav-link" id="loginText">Login</a>
           </li>
           <li class="nav-item" id="signup">
-            <a href="#" class="nav-link" id="signupText">Signup</a>
+            <a href="#body" class="nav-link" id="signupText">Signup</a>
+          </li>
+          <li class="nav-item" id="signup">
+            <a
+              href="#body"
+              class="nav-link"
+              id="addText"
+              style="flex-direction: row; display: flex; align-items: center"
+            >
+              <div style="font-size: 1.6rem">Add Product</div>
+              <div style="font-size: 25px">+</div>
+            </a>
           </li>
         </ul>
         <div class="nav-btn">
@@ -76,6 +77,21 @@
     </header>
     <div id="loader-container">
       <div id="loader"></div>
+    </div>
+    <div id="showcase">
+      <div id="close">CLOSE ✖</div>
+      <div id="main-showcase">
+        <div id="showcase-image-container">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/ion-b2ca8.appspot.com/o/demoUser%2F7.png?alt=media&token=3cfbbdb0-e72c-4546-b4f0-3b7ffa646789"
+            id="showcase-img"
+          />
+          <div id="showcase-details">
+            <div id="showcase-price">₹ 1,000</div>
+            <button id="product-buy" onclick="orderPlaced()">Buy Now</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="main-site">
       <div id="header-home">

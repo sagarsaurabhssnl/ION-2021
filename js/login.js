@@ -13,4 +13,6 @@ function hideLogin() {
 function loggedIn() {
     var loginNode = document.getElementById("loginText");
     var signupNode = document.getElementById("signupText");
+    var addNode = document.getElementById("addText");
+
 }
