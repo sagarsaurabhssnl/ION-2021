@@ -11,23 +11,23 @@
     <link rel="stylesheet" type="text/css" href="./styles/signup.css" />
     <link rel="stylesheet" type="text/css" href="./styles/login.css" />
     <link rel="stylesheet" type="text/css" href="./styles/loader.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/alert.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/upload.css" />
     <title>DIGIMARKET</title>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-messaging.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-functions.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
-
+    <script src="js/firebaseConfig.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/signup.js"></script>
+    <script src="js/upload.js"></script>
     <link rel="shortcut icon" href="#" />
   </head>
   <body scroll="no" style="overflow: hidden" id="body">
-    <!-- <input type="file" id="file" aria-label="File browser example" /> -->
-
-    <div id="login"></div>
-    <div id="signup"></div>
     <header class="header">
       <nav class="navbar">
         <div style="display: flex; align-items: center">
@@ -63,8 +63,7 @@
               id="addText"
               style="flex-direction: row; display: flex; align-items: center"
             >
-              <div style="font-size: 1.6rem">Add Product</div>
-              <div style="font-size: 25px">+</div>
+              <div id="add-product">Add Product</div>
             </a>
           </li>
         </ul>
@@ -75,8 +74,78 @@
         </div>
       </nav>
     </header>
+    <div id="loginForm-outer-container">
+      <div id="loginForm-container">
+        <div id="login-close">CLOSE ✖</div>
+        <div id="loginForm">
+          <div id="login-head">LOGIN</div>
+          <input
+            type="email"
+            class="textField"
+            placeholder="Email"
+            name="Email"
+            id="login-email"
+            required
+          />
+          <input
+            type="password"
+            class="textField"
+            placeholder="Password"
+            name="name"
+            id="login-password"
+            required
+          />
+          <button id="login-button" onclick="initiateLogin()">LOGIN</button>
+        </div>
+      </div>
+    </div>
+    <div id="alert-outer">
+      <div id="alert-container">
+        <div id="alert-close">CLOSE ✖</div>
+        <div id="alertWindow">
+          <div id="alert-head">! ALERT !</div>
+          <div id="alert-data"></div>
+        </div>
+      </div>
+    </div>
+    <div id="signupForm-outer-container">
+      <div id="signupForm-container">
+        <div id="signup-close">CLOSE ✖</div>
+        <div id="signupForm">
+          <div id="signup-head">SIGNUP</div>
+          <input
+            type="email"
+            class="textField"
+            placeholder="Email"
+            name="Email"
+            id="signup-email"
+            required
+          />
+          <input
+            type="name"
+            class="textField"
+            placeholder="Display Name"
+            name="diplsayName"
+            id="signup-name"
+            required
+          />
+          <input
+            type="password"
+            class="textField"
+            placeholder="Password"
+            name="name"
+            id="signup-password"
+            required
+          />
+          <button id="login-button" onclick="initiateSignup()">SIGNUP</button>
+        </div>
+      </div>
+    </div>
     <div id="loader-container">
       <div id="loader"></div>
+    </div>
+    <div id="orderPlaced-container">
+      <div id="orderPlaced"></div>
     </div>
     <div id="showcase">
       <div id="close">CLOSE ✖</div>
@@ -87,9 +156,59 @@
             id="showcase-img"
           />
           <div id="showcase-details">
-            <div id="showcase-price">₹ 1,000</div>
+            <div id="showcase-description" style="font-size: 1.3rem">
+              No Description
+            </div>
+            <div id="showcase-price">-------</div>
             <button id="product-buy" onclick="orderPlaced()">Buy Now</button>
           </div>
+        </div>
+      </div>
+    </div>
+    <div id="upload-outer">
+      <div id="upload-container">
+        <div id="upload-close">CLOSE ✖</div>
+        <div id="upload-container-main">
+          <div id="upload-data-input">
+            <input
+              type="name"
+              class="upload-textField"
+              placeholder="Product Name"
+              name="Name"
+              id="upload-product-name"
+              required
+            />
+
+            <input
+              type="number"
+              class="upload-textField"
+              placeholder="Product Price"
+              name="Price"
+              id="upload-product-price"
+              required
+            />
+          </div>
+          <textarea
+            id="multiline-details"
+            name="Details"
+            rows="4"
+            cols="50"
+            placeholder="Product Details"
+            id="upload-product-details"
+          >
+          </textarea>
+        </div>
+        <div id="upload-buttons">
+          <label>
+            <input
+              type="file"
+              size="60"
+              id="upload-file"
+              accept="image/*"
+              onchange="initiateUpload()"
+            />
+          </label>
+          <button id="upload-button" onclick="finishUpload()">SUBMIT</button>
         </div>
       </div>
     </div>
@@ -117,9 +236,7 @@
       /></a>
     </footer>
   </body>
-  <script src="js/firebaseConfig.js"></script>
   <script src="js/showcase.js"></script>
   <script src="js/nav.js"></script>
-  <script src="js/login.js"></script>
   <script src="js/main.js"></script>
 </html>

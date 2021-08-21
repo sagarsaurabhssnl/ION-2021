@@ -1,6 +1,7 @@
 var firebaseConfig = {
     apiKey: "AIzaSyCqW03_ljnBrRzVwGjjo9YQ1t8ClSnK_28",
     authDomain: "ion-b2ca8.firebaseapp.com",
+    // authDomain: "http://127.0.0.1:5500/",
     projectId: "ion-b2ca8",
     storageBucket: "ion-b2ca8.appspot.com",
     messagingSenderId: "591982235822",
